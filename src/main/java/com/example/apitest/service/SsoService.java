@@ -30,6 +30,7 @@ public class SsoService {
 
             if (data.getUserId() == null || data.getToken() == null) {
                 SsoResponse error = new SsoResponse();
+                error.setResponseCode("E00001");
                 error.setResponseMessage("ข้อมูลไม่ครบถ้วน");
                 error.setResponseData(null);
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
