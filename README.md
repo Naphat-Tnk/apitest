@@ -15,6 +15,7 @@ the database is not found. If the save is successful, the system will respond in
 * Java 21.0.6
 * Apache Maven 3.9.11
 * Postgre 15.13
+* SpringDoc 2.3.0
 
 ### **Dependencies**
 * Spring Web
