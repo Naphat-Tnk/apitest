@@ -3,21 +3,19 @@ package com.example.apitest.service;
 import com.example.apitest.Entity.SsoUser;
 import com.example.apitest.Repository.SsoUserRepo;
 import com.example.apitest.model.SsoResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.View;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Service
 public class SsoService {
-    @Autowired
-    private SsoUserRepo ssoRepo;
+    private final SsoUserRepo ssoRepo;
 
+    public SsoService(SsoUserRepo ssoUserRepo) {
+        this.ssoRepo = ssoUserRepo;
+    }
     public ResponseEntity <SsoResponse> post(SsoUser user) {
-//        return ssoRepo.save(user);
         try {
             if (user.getRequestDate() == null) { //เช็คเพื่อไม่มี
                 user.setRequestDate(new Date());

@@ -1,7 +1,6 @@
 package com.example.apitest.controller;
 
 import com.example.apitest.Entity.SsoUser;
-import com.example.apitest.Repository.SsoUserRepo;
 import com.example.apitest.model.SsoResponse;
 import com.example.apitest.service.SsoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/apitest")
 public class SsoController {
 
+    private final SsoService ssoService;
     @Autowired
-    private SsoService ssoService;
+    public SsoController(SsoService ssoService) {
+        this.ssoService = ssoService;
+    }
 
     @PostMapping("/gettoken")
     public ResponseEntity<SsoResponse> create(@RequestBody SsoUser user) {
